@@ -1,0 +1,25 @@
+﻿@using BlazorDemo.Shared
+@inject ContactsClient ContactsClient
+
+
+<h3>Contacten</h3>
+
+@if (_contacts != null)
+{
+    <ul>
+        @foreach (var contact in _contacts)
+        {
+            <li>@contact.FirstName @contact.LastName</li>
+        }
+    </ul>
+}
+
+
+@code {
+    private IEnumerable<Contact>? _contacts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _contacts = await ContactsClient.GetContacts();;
+    }
+}
