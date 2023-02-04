@@ -1,9 +1,10 @@
 ﻿@page "/"
+@inject NavigationManager Navigation
 
 <PageTitle>Index</PageTitle>
 
 <h1>Hello, world!</h1>
 
-<button class="btn btn-primary">Contact toevoegen</button>
+<button class="btn btn-primary" @onclick="@(() => Navigation.NavigateTo("/Contact"))">Contact toevoegen</button>
 
 <ContactsOverview></ContactsOverview>
