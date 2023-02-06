@@ -4,17 +4,15 @@
 
 <h3>Contact toevoegen</h3>
 
-<EditForm Model="Contact" OnValidSubmit="SubmitContactAsync">
-   
+<EditForm Model="Contact" OnValidSubmit="SubmitContactAsync">   
     
     <div class="form-group">
         <label for="inputFirstName">Voornaam</label>
         <input type="text" class="form-control" id="inputFirstName" @bind-value="Contact.FirstName">
-       
-    </div>
+    </div>    
   
 
-    <button type="submit" class="btn btn-primary">Verstuur contact</button>
+    <button type="submit" class="mt-2 btn btn-primary">Verstuur contact</button>
 </EditForm>
 
 @code {
