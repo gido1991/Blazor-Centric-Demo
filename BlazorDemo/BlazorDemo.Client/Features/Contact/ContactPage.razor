@@ -5,36 +5,39 @@
 <h3>Contact toevoegen</h3>
 
 <EditForm Model="Contact" OnValidSubmit="SubmitContactAsync">
-    @*<DataAnnotationsValidator />*@
+   
     
     <div class="form-group">
         <label for="inputFirstName">Voornaam</label>
         <input type="text" class="form-control" id="inputFirstName" @bind-value="Contact.FirstName">
-        <ValidationMessage For="@(() => Contact.FirstName)"/>
+       
     </div>
-    <div class="form-group">
-        <label for="inputLastName">Achternaam</label>
-        <input type="text" class="form-control" id="inputLastName" @bind-value="Contact.LastName">
-        <ValidationMessage For="@(() => Contact.LastName)"/>
-    </div>
-    <div class="form-group">
-        <label for="inputPostalCode">Postcode</label>
-        <input type="text" class="form-control" id="inputPostalCode" @bind-value="Contact.PostalCode">
-        <ValidationMessage For="@(() => Contact.PostalCode)"/>
-    </div>
+  
 
-    <button type="submit" class="btn btn-primary" disabled="@_isSubmitting">Verstuur contact</button>
+    <button type="submit" class="btn btn-primary">Verstuur contact</button>
 </EditForm>
 
 @code {
-    private bool _isSubmitting = false;
     private Contact Contact { get; set; } = new Contact();
 
     private async Task SubmitContactAsync()
     {
-        _isSubmitting = true;
         await ContactsClient.SubmitContact(Contact);
-        _isSubmitting = false;
+        
     }
+    @*<DataAnnotationsValidator />*@
+
+    // <ValidationMessage For="@(() => Contact.FirstName)"/>
+
+    //<div class="form-group">
+    //    <label for="inputLastName">Achternaam</label>
+    //    <input type="text" class="form-control" id="inputLastName" @bind-value="Contact.LastName">
+    //    <ValidationMessage For="@(() => Contact.LastName)"/>
+    //</div>
+    //<div class="form-group">
+    //    <label for="inputPostalCode">Postcode</label>
+    //    <input type="text" class="form-control" id="inputPostalCode" @bind-value="Contact.PostalCode">
+    //    <ValidationMessage For="@(() => Contact.PostalCode)"/>
+    //</div>
 
 }
