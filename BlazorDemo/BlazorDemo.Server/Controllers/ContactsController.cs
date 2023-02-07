@@ -31,8 +31,8 @@ public class ContactsController : ControllerBase
     }
 
 
-    [HttpPut(Name = "CreateContacts")]
-    public ActionResult Put(Contact contact)
+    [HttpPost(Name = "CreateContacts")]
+    public ActionResult Post(Contact contact)
     {
         return Created(Url.Action(nameof(Get)) ?? string.Empty, contact);
     }

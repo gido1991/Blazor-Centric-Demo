@@ -16,5 +16,5 @@ public class ContactsClient: IContactsClient
             => await _httpClient.GetFromJsonAsync<IEnumerable<Contact>>("contacts");
 
     public async Task SubmitContact(Contact contact)
-        => await _httpClient.PutAsJsonAsync("contacts", contact);
+        => await _httpClient.PostAsJsonAsync("contacts", contact);
 }
