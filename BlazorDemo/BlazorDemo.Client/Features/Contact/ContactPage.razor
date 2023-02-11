@@ -4,12 +4,12 @@
 
 <h3>Contact toevoegen</h3>
 
-<EditForm Model="_contact" OnValidSubmit="SubmitContactAsync">   
+<EditForm Model="_contact" OnValidSubmit="SubmitContactAsync">
 
     <div class="form-group">
         <label for="inputFirstName">Voornaam</label>
         <input type="text" class="form-control" id="inputFirstName" @bind-value="_contact.FirstName">
-    </div>    
+    </div>
 
     <button type="submit" class="mt-2 btn btn-primary">Verstuur contact</button>
 </EditForm>
@@ -22,6 +22,26 @@
         await ContactsClient.SubmitContact(_contact);
         
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //<DataAnnotationsValidator />
 
